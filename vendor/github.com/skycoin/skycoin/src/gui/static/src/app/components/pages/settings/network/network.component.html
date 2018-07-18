@@ -1,0 +1,28 @@
+<div class="sky-container sky-container-grey">
+  <app-header title="Networking"></app-header>
+
+  <h3>Automatic peers</h3>
+
+  <mat-card>
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let peer of networkService.automatic() | async">
+        <div class="-peer">
+          <span class="-ip">{{ peer.address.split(':')[0] }}</span>
+          <span class="-port">:{{ peer.listen_port }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <h3>Default peers</h3>
+  <mat-card>
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let peer of defaultConnections">
+        <div class="-peer">
+          <span class="-ip">{{ peer.address.split(':')[0] }}</span>
+          <span class="-port">:{{ peer.listen_port }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
